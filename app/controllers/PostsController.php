@@ -4,7 +4,7 @@ class PostsController extends BaseController{
 
     public function getIndex()
     {
-        $posts = Post::with('Author')-> orderBy('id', 'DESC')->get();
+        $posts = Post::with('Author')-> orderBy('id', 'DESC')->paginate(5);
         return View::make('index')->with('posts',$posts);
     }
 
